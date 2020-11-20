@@ -134,7 +134,7 @@ namespace LightScrollSnap
 
         private void OnInitialPosChanged()
         {
-            if (scrollbar != null)
+            if (scrollbar != null && scrollbar.value != initialPos)
                 ScrollTo(initialPos);
         }
 
