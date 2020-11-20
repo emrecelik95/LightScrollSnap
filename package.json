@@ -1,0 +1,25 @@
+{
+  "name": "com.emrecelik95.lightscrollsnap",
+  "version": "1.0.0",
+  "displayName": "Light Scroll Snap",
+  "description": "This package contains a basic scroll snap with customizable effects.",
+  "unity": "2020.1",
+  "samples": [
+    {
+      "displayName": "Basic Sample",
+      "description": "Contains a sample to show the basic functionality.",
+      "path": "Samples~/Basic Sample"
+    }
+  ],
+  "keywords": [
+    "ui",
+    "scroll",
+    "snap",
+    "carousel",
+    "picker"
+  ],
+  "author": {
+    "name": "Emre Celik",
+    "email": "emrecelik95@gmail.com"
+  }
+}
