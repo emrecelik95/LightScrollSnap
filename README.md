@@ -18,7 +18,7 @@ A simple tool to make unity scrollview to be snapped. It includes some default r
 "com.emrecelik95.lightscrollsnap": "https://github.com/emrecelik95/LightScrollSnap.git"
 ```
 
-*If you don't want to use git, you can download and unzip the repo and move to Packages folder.*
+*If you don't want to use git, you can download and unzip the repo and move it to Packages folder.*
 
 ### Setup
 
@@ -41,3 +41,28 @@ A simple tool to make unity scrollview to be snapped. It includes some default r
 - Transition efffects are based on Scriptable Objects and inherited from **BaseScrollSnapEffect**.
 - There are two default effect on this package, to use them, Right Click under Assets, Create -> ScrollSnapEffect.
 - To write custom transition effect, just inherit **BaseScrollSnapEffect**.
+
+### Events
+
+- **OnItemSelected** , **OnItemDeselected**, **OnItemClicked**.
+- Register and unregister to events; 
+```cs
+scrollSnap.OnItemSelected.AddListener(OnSelectedStickerChanged);
+scrollSnap.OnItemSelected.RemoveListener(OnSelectedStickerChanged);
+
+private void OnSelectedItemChanged(RectTransform go, int index){}
+```
+
+### Some Useful Methods
+- ScrollTo(float ratio), SmoothScrollTo(float ratio, float duration) // ratio is between 0 and 1
+- ScrollToItem(int itemIndex), SmoothScrollToItem(int itemIndex, float duration)
+```cs
+scrollSnap.SmoothScrollToItem(5, 0.5f);
+```
+
+##### To add click listener to a specific item, use;
+- AddItemClickListener(int itemIndex, Action clickListener)  
+- RemoveItemClickListener(int itemIndex, Action clickListener
+```cs
+scrollSnap.AddItemClickListener(0, () => { Debug.Log("First item clicked!"); });
+```
