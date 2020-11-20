@@ -28,13 +28,13 @@ A simple tool to make unity scrollview to be snapped. It includes some default r
 3) Make any configuration using **ScrollSnap** component(Canvas/ScrollSnap).
 
 - From Scratch
-1) Create a canvas with screen with based **Canvas Scaler**.
+1) Create a canvas with screen based **Canvas Scaler**.
 2) Create horizontal **ScrollView**.
 3) Add **Horizontal Layout Group** and **Content Size Fitter** to **Content** object;
 4) Bring the first item to center using **Padding** in **Horizontal Layout Group**.
 5) Add **ScrollSnap** component to **ScrollRect** object.
 6) Drag **ScrollBarHorizontal** to the **Scrollbar** field on **ScrollSnap** component.
-7) Drag any ScrollSnap effect to the Effects field.
+7) Drag any ScrollSnap effects to the Effects field.
 
 ### Using Transition Effects
 
