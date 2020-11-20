@@ -55,8 +55,7 @@ namespace LightScrollSnap
 
         #region PUBLIC EVENTS
 
-        [Header("Unity Events")]
-        public UnityEvent<RectTransform, int> OnItemSelected;
+        [Header("Unity Events")] public UnityEvent<RectTransform, int> OnItemSelected;
         public UnityEvent<RectTransform, int> OnItemDeSelected;
         public UnityEvent<int, RectTransform> OnItemClicked;
 
@@ -79,6 +78,14 @@ namespace LightScrollSnap
 
         protected virtual void Update() => UpdateAll();
 
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            if (!Application.isPlaying)
+                OnInitialPosChanged();
+        }
+#endif
+
         #endregion
 
         #region PRIVATE METHODS
@@ -87,7 +94,6 @@ namespace LightScrollSnap
         {
             _scrollRect = GetComponent<ScrollRect>();
             SetupItems();
-            ScrollTo(initialPos);
         }
 
         private void SetupItems()
@@ -124,6 +130,12 @@ namespace LightScrollSnap
             OnItemClicked?.Invoke(index, item);
             if (autoScrollToClickedItem)
                 SmoothScrollToItem(index);
+        }
+
+        private void OnInitialPosChanged()
+        {
+            if (scrollbar != null)
+                ScrollTo(initialPos);
         }
 
         private void UpdateNearest()
