@@ -47,8 +47,8 @@ A simple tool to make unity scrollview to be snapped. It includes some default r
 - **OnItemSelected** , **OnItemDeselected**, **OnItemClicked**.
 - Register and unregister to events; 
 ```cs
-scrollSnap.OnItemSelected.AddListener(OnSelectedStickerChanged);
-scrollSnap.OnItemSelected.RemoveListener(OnSelectedStickerChanged);
+scrollSnap.OnItemSelected.AddListener(OnSelectedItemChanged);
+scrollSnap.OnItemSelected.RemoveListener(OnSelectedItemChanged);
 
 private void OnSelectedItemChanged(RectTransform go, int index){}
 ```
