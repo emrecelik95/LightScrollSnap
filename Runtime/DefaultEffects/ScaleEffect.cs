@@ -2,7 +2,7 @@
 
 namespace LightScrollSnap
 {
-    [CreateAssetMenu(fileName = "ScaleEffect", menuName = "Create ScrollSnapEffect/Scale Effect")]
+    [CreateAssetMenu(fileName = "ScaleEffect", menuName = "ScrollSnapEffect/Scale Effect")]
     public class ScaleEffect : BaseScrollSnapEffect
     {
         public Vector2 selectedItemScale = Vector2.one * 1.25f;

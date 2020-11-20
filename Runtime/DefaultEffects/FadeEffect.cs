@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace LightScrollSnap
 {
-    [CreateAssetMenu(fileName = "FadeEffect", menuName = "Create ScrollSnapEffect/FadeEffect")]
+    [CreateAssetMenu(fileName = "FadeEffect", menuName = "ScrollSnapEffect/FadeEffect")]
     public class FadeEffect : BaseScrollSnapEffect
     {
         public float fadeAlpha = .45f;
