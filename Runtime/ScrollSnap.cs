@@ -150,10 +150,11 @@ namespace LightScrollSnap
 
         private void UpdateAll()
         {
+            UpdateItemsIfChanged();
+
             if (!HasItem)
                 return;
 
-            UpdateItemsIfChanged();
             _scrollPos = scrollbar.value;
             UpdateNearest();
             if (Input.GetMouseButton(0))
@@ -170,13 +171,10 @@ namespace LightScrollSnap
 
         private void UpdateItemsIfChanged()
         {
-            if (!HasItem)
-                return;
-
             var childCount = Content.childCount;
             var childCountChanged = _itemCount != childCount;
             var contentChanged = childCountChanged;
-            if (!childCountChanged)
+            if (!childCountChanged && HasItem)
             {
                 for (int i = 0; i < _itemCount; i++)
                 {

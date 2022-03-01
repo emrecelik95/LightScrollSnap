@@ -1,6 +1,6 @@
 {
   "name": "com.emrecelik95.lightscrollsnap",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "Light Scroll Snap",
   "description": "This package contains a basic scroll snap with customizable effects.",
   "unity": "2020.1",
