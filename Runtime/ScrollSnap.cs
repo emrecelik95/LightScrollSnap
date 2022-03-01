@@ -50,6 +50,7 @@ namespace LightScrollSnap
         private List<ScrollItemClickHandler> _itemClickHandlers;
         private int _nearestIndex;
         private float _nearestPos;
+        private bool HasItem => _items != null && _items.Count > 0;
 
         #endregion
 
@@ -149,6 +150,10 @@ namespace LightScrollSnap
 
         private void UpdateAll()
         {
+            if (!HasItem)
+                return;
+
+            UpdateItemsIfChanged();
             _scrollPos = scrollbar.value;
             UpdateNearest();
             if (Input.GetMouseButton(0))
@@ -161,6 +166,34 @@ namespace LightScrollSnap
 
             HandleItemsStates();
             ApplyEffects();
+        }
+
+        private void UpdateItemsIfChanged()
+        {
+            if (!HasItem)
+                return;
+
+            var childCount = Content.childCount;
+            var childCountChanged = _itemCount != childCount;
+            var contentChanged = childCountChanged;
+            if (!childCountChanged)
+            {
+                for (int i = 0; i < _itemCount; i++)
+                {
+                    var item = _items[i];
+                    var child = Content.GetChild(i);
+                    if (item != child)
+                    {
+                        contentChanged = true;
+                        break;
+                    }
+                }
+            }
+
+            if (contentChanged)
+            {
+                SetupItems();
+            }
         }
 
         private IEnumerator SnapToNearestCoroutine()
@@ -180,6 +213,9 @@ namespace LightScrollSnap
 
         private int GetNearestIndex()
         {
+            if (_items.Count <= 1)
+                return 0;
+
             for (int i = 0; i < _itemCount; i++)
             {
                 var pos = _posses[i];
